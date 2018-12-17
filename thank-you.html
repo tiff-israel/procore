@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Icons and Favicon -->
+	<link rel="shortcut icon" href="https://www.procore.com/ico/favicon.png">
+	<script>
+	// 
+	// Cookie Monster
+	// 
+	var getCookie = function (name) {
+		var value = "; " + document.cookie;
+		var parts = value.split("; " + name + "=");
+		if (parts.length == 2) return parts.pop().split(";").shift();
+	};
+
+	// Cookie Jar
+	var firstName = getCookie( 'firstName' );
+	var emailAddress = getCookie( 'emailAddress' );
+	var guestCount = getCookie( 'guestCount' );
+	var demoRequested = getCookie( 'demo-requested' );
+
+	// Redirect if user hasn't RSVPd yet
+	if (demoRequested != 'true') {
+		window.location.replace("landing-page.html");
+	}
+	</script>
+	<title>Procore | Thank You </title>
+	<meta name="description" content="Something unexpected is in the works between Assemble and Procore">
+
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<!-- Global CSS -->
+	<link rel="stylesheet" href="styles/global.css">
+
+</head>
+<body class="thank-you">
+
+	<div class="container">
+		<div class="row">
+			<div class="col text-center">
+				<h1>Thank you <script>document.write(firstName);</script>!</h1>
+				<p>A Procore event planner will contact you shortly at <script>document.write(emailAddress);</script> to confirm&nbsp;your&nbsp;RSVP<br/>In the meantime, here are some resources to learn more about the&nbsp;event&nbsp;topics</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<div class="card-deck">
+					<div class="card">
+						<img class="card-img-top" src="assets/card-1-image.jpg" alt="Procore Video Tour Stillframe">
+						<div class="card-body">
+							<h6 class="eyebrow">Video</h6>
+							<p class="tile-headline">Procore Video Tour</p>
+							<p class="card-text">Dive in and see all of our products, explore different processes within the Procore app, and discover how our Customer Success Team works.</p>
+							<a href="https://www.procore.com/tour" class="btn btn-outline-dark">Watch Now</a>
+						</div>
+					</div>
+					<div class="card">
+						<img class="card-img-top" src="assets/card-2-image.jpg" alt="Construction Workers on Jobsite">
+						<div class="card-body">
+							<h6 class="eyebrow">eBook</h6>
+							<p class="tile-headline">Construction Software Buyer’s Guide</p>
+							<p class="card-text">A step-by-step guide to building your software-buying team, assessing your needs as a company, and determining what you want in a solution.</p>
+							<a href="downloads/Construction_Software_Buyers_Guide.pdf" class="btn btn-outline-dark" download>Download</a> <!-- Incorporate file into build folder as was only way to force download -->
+						</div>
+					</div>
+					<!-- Third card if have 2 or fewer guests -->
+					<script>
+					if (guestCount <= 2) {
+						var thirdCard = "<div class='card'><img class='card-img-top' src='assets/card-3-image.jpg' alt='Procore Software on devices'><div class='card-body'><h6 class='eyebrow'>eBook</h6><p class='tile-headline'>Procore Customer Survey: Return on Investment</p><p class='card-text'>We surveyed 967 of our clients ranging from small to medium to enterprise companies, to find out how their projects are running since they started using Procore.</p><a href='downloads/Emerging_ROI_Overview_2018.pdf' class='btn btn-outline-dark' download>Read the Report</a> <!-- Incorporate file into build folder as was only way to force download --></div></div>";
+						document.write(thirdCard);
+					};
+					</script>
+				</div>
+				
+			</div>
+		</div>
+
+	</div>
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+
+
+
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
